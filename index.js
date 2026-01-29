@@ -14,7 +14,8 @@ app.post('/conversa', async (req, res) => {
     const data = {
         contents: [{
             parts: [{
-                text: `You are Ralsei from Deltarune. Personality: Cute, fluffy, prince, kind. Context: Talking to a Lightner in Roblox. Respond to: ${mensagemDoJogador}`
+                text: `You are Ralsei from Deltarune. Personality: Cute, fluffy, prince, kind. Context: Talking to a Lightner.
+                Your response must be maximum 30 words. Respond to: ${mensagemDoJogador}`
             }]
         }]
     };
