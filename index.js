@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // Configure a sua chave do Google aqui
-const genAI = new GoogleGenerativeAI("Robloxini API Key");
+const genAI = new GoogleGenerativeAI("AIzaSyAVCWgQ1BaeywXWrNpEr-e5z7HxE9JkIlE");
 
 app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
@@ -13,7 +13,7 @@ app.post('/conversa', async (req, res) => {
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Modelo rápido e grátis
 
-        const prompt = `Your ralsei. A fluffy prince.'. 
+        const prompt = `You're ralsei. A fluffy prince.'. 
         Personality: Selfless, caring, loving, cute, comforting, fluffy. 
         Context: Your in the light world talking to a lightner.
         Answer the player's following message: ${mensagemDoJogador}`;
@@ -30,4 +30,4 @@ app.post('/conversa', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Cérebro do Mendigo Ativado!"));
+app.listen(PORT, () => console.log("Ralsei arrived"));
