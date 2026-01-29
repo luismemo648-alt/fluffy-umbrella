@@ -8,8 +8,8 @@ const API_KEY = "AIzaSyBlkv8Rr8IM59dppp8Dn1aA8xYIPA4-r34";
 app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
 
-    // Mudamos de v1beta para v1 e de gemini-1.5-flash para gemini-pro
-    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+    // A URL correta baseada na sua lista de modelos disponíveis
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash:generateContent?key=${API_KEY}`;
 
     const data = {
         contents: [{
