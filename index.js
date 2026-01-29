@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 // Substitua pela sua chave AIza...
-const API_KEY = "AIzaSyAPzfl08jDd7xO8uweurTL17czm5W5hKGs"; 
+const API_KEY = "AIzaSyBlkv8Rr8IM59dppp8Dn1aA8xYIPA4-r34"; 
 
 app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
