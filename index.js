@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // Configure a sua chave do Google aqui
-const genAI = new GoogleGenerativeAI("AIzaSyAVCWgQ1BaeywXWrNpEr-e5z7HxE9JkIlE");
+const genAI = new GoogleGenerativeAI("AIzaSyAPzfl08jDd7xO8uweurTL17czm5W5hKGs");
 
 app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
