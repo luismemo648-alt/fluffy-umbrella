@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const genAI = new GoogleGenerativeAI("SUA_CHAVE_AQUI");
+const genAI = new GoogleGenerativeAI("AIzaSyAPzfl08jDd7xO8uweurTL17czm5W5hKGs");
 
 app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
