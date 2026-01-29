@@ -11,7 +11,7 @@ app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
 
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Modelo rápido e grátis
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
         const prompt = `You're ralsei. A fluffy prince.'. 
         Personality: Selfless, caring, loving, cute, comforting, fluffy. 
