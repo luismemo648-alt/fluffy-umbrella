@@ -1,30 +1,36 @@
-local HttpService = game:GetService("HttpService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local chatService = game:GetService("Chat")
+const express = require('express');
+const { OpenAI } = require('openai'); // Importa a inteligência
+const app = express();
 
-local function getEgirlResponse(playerMessage)
-	local url = "SUA_URL_DA_API_AQUI"
-	local data = {
-		message = playerMessage,
-		personality = "sem teto"
-	}
+app.use(express.json());
 
-	local jsonData = HttpService:JSONEncode(data)
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY, // Sua chave secreta fica guardada aqui
+});
 
-	local response = HttpService:PostAsync(url, jsonData, Enum.HttpContentType.ApplicationJson)
-	local decoded = HttpService:JSONDecode(response)
+app.post('/conversa', async (req, res) => {
+    const mensagemDoJogador = req.body.message;
 
-	return decoded.text -- A resposta da IA
-end
+    try {
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo", // Modelo rápido e barato
+            messages: [
+                { 
+                    role: "system", 
+                    content: "Você é um NPC sem teto no jogo Roblox. Você é engraçado, levemente ranzinza, usa gírias de internet e sempre tenta pedir um Robux no final. Suas respostas devem ser curtas para caber no balão de fala do jogo." 
+                },
+                { role: "user", content: mensagemDoJogador }
+            ],
+        });
 
-local function NPCChat(npc, message)
-	chatService:Chat(npc.Head or npc.PrimaryPart or npc, message, Enum.ChatColor.Green)
-end
+        const respostaDaIA = completion.choices[0].message.content;
+        res.json({ text: respostaDaIA });
+        
+    } catch (error) {
+        console.error("Erro na OpenAI:", error);
+        res.json({ text: "Minha cabeça tá doendo... deve ser a fome." });
+    }
+});
 
-ReplicatedStorage.Remotes.NPCMessage.OnServerEvent:Connect(function(player, message)
-	local response = getEgirlResponse(message)
-	print("E-girl diz: " .. response)
-	-- Faça o NPC falar a resposta
-
-	NPCChat(script.Parent, response)
-end)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Cérebro ligado na porta ${PORT}`));
