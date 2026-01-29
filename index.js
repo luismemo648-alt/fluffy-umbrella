@@ -9,7 +9,7 @@ app.post('/conversa', async (req, res) => {
     const mensagemDoJogador = req.body.message;
 
     // A URL correta baseada na sua lista de modelos disponíveis
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-3-flash:generateContent?key=${API_KEY}`;
 
     const data = {
         contents: [{
