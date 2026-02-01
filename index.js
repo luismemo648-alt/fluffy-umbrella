@@ -10,7 +10,7 @@ app.post('/conversa', async (req, res) => {
     const chatHistory = req.body.history; 
 
     // Usando o Gemini 3 Flash (que tem 20 RPD na sua lista)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
     const data = {
         // Definimos a personalidade como Instrução de Sistema
