@@ -9,7 +9,7 @@ app.post('/conversa', async (req, res) => {
     // Agora recebemos a tabela 'history' que vem do Roblox
     const chatHistory = req.body.history; 
 
-    // Usando o Gemini 3 Flash (que tem 20 RPD na sua lista)
+    // Usando o Gemini 3 Flash
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
     const data = {
