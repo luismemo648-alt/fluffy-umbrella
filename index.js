@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 // Substitua pela sua chave real aqui
-const API_KEY = "AIzaSyBlkv8Rr8IM59dppp8Dn1aA8xYIPA4-r34"; 
+const API_KEY = "AIzaSyBa3d9cKN1sZUQ8dzWcBUlAdzA9rF9qy3E"; 
 
 app.post('/conversa', async (req, res) => {
     // Agora recebemos a tabela 'history' que vem do Roblox
